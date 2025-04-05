@@ -18,9 +18,9 @@ Built with a focus on tradition + tech, it provides:
 ## 🛠️ Tech Stack
 
 - **Frontend**: React.js  
-- **Styling**: Tailwind CSS / CSS Modules  
-- **Language Support**: i18next / Manual toggle-based content handling  
-- **Hosting**: GitHub Pages / Vercel (as per deployment)
+- **Styling**: Tailwind CSS  
+- **Language Support**: Manual toggle-based content handling  
+- **Hosting**: GitHub Pages 
 
 ## 💡 Hackathon Details
 
