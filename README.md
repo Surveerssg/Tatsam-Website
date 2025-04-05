@@ -1,12 +1,33 @@
-# React + Vite
+# Tatsam Society Official Website 🌐
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the codebase for the official website of **Tatsam – The Hindi Society of NSUT**, developed during the *"Shlok Decode – Crack the Shloka, Code the Glory"* hackathon.
 
-Currently, two official plugins are available:
+## 🚀 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Our website aims to represent the cultural and literary spirit of Tatsam through a modern, accessible, and bilingual platform.  
+Built with a focus on tradition + tech, it provides:
 
-## Expanding the ESLint configuration
+- 🏛️ **About Us**: Learn more about the society's vision and journey.
+- 🗓️ **Events**: Showcase of all past and upcoming events.
+- 👥 **Members' Corner**: Meet the team behind Tatsam.
+- 📝 **Blog Section**: Articles, reflections, and creative pieces.
+- 🖼️ **Gallery**: Photos from events and activities.
+- 📨 **Newsletter Subscription**: Stay updated with upcoming events.
+- 🌐 **Language Toggle**: Switch between English and Hindi.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- **Frontend**: React.js  
+- **Styling**: Tailwind CSS / CSS Modules  
+- **Language Support**: i18next / Manual toggle-based content handling  
+- **Hosting**: GitHub Pages / Vercel (as per deployment)
+
+## 💡 Hackathon Details
+
+- 📌 **Event**: *Shlok Decode – Crack the Shloka, Code the Glory*  
+- 🏛️ **Organized by**: Tatsam Society, NSUT Delhi  
+- 📆 **Date**: 4th April  
+- ⏱️ **Duration**: 12 PM – 4 PM  
+- 🏆 **Prize Pool**: ₹3000  
+- 📍 **Venue**: Smart Block, NSUT
+
