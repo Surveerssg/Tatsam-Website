@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from "./components/Header";
-import Footer from './components/Footer';
-import About from './components/About';
-import Events from './components/Events';
-import MembersCorner from './components/MembersCorner';
-import Blog from './components/Blog';
-import Gallery from './components/Gallery';
-import Newsletter from './components/Newsletter';
-import Home from './components/Home';
+import Header from "./Components/Header";
+import Footer from './Components/Footer';
+import About from './Components/About';
+import Events from './Components/Events';
+import MembersCorner from './Components/MembersCorner';
+import Blog from './Components/Blog';
+import Gallery from './Components/Gallery';
+import Newsletter from './Components/Newsletter';
+import Home from './Components/Home';
 import { LanguageProvider } from './LanguageContext'; // Adjust the path as needed
-import Philosophy from './components/Philosophy';
+import Philosophy from './Components/Philosophy';
 
 const App = () => {
   return (
