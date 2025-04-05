@@ -20,7 +20,7 @@ Built with a focus on tradition + tech, it provides:
 - **Frontend**: React.js  
 - **Styling**: Tailwind CSS  
 - **Language Support**: Manual toggle-based content handling  
-- **Hosting**: GitHub Pages 
+- **Hosting**: Vercel 
 
 ## 💡 Hackathon Details
 
