@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { LanguageContext } from '../LanguageContext'; // Adjust the path as needed
+import { LanguageContext } from '../LanguageContext'; 
 
 const members = Array.from({ length: 11 }, (_, i) => ({
   image: `/${i + 1}.jpg`,

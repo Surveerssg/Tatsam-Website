@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import Particles from '../components/Particles/Particles';
+import Particles from '../Components/Particles/Particles';
 import { Link } from 'react-router-dom';
-import AnimatedWelcome from '../components/AnimatedWelcome'; // Import the animated welcome component
+import AnimatedWelcome from '../Components/AnimatedWelcome'; // Import the animated welcome component
 import { LanguageContext } from '../LanguageContext'; // Optional, for other language toggles
 
 const Home = () => {
