@@ -2,6 +2,11 @@
 
 This repository contains the codebase for the official website of **Tatsam – The Hindi Society of NSUT**, developed during the *"Shlok Decode – Crack the Shloka, Code the Glory"* hackathon.
 
+## 👨‍💻 Team Members
+- Utkarsh Kumar Jha  
+- Surveer Singh Guglani  
+- Shubham Yadav  
+
 ## 🚀 Overview
 
 Our website aims to represent the cultural and literary spirit of Tatsam through a modern, accessible, and bilingual platform.  
@@ -30,4 +35,3 @@ Built with a focus on tradition + tech, it provides:
 - ⏱️ **Duration**: 12 PM – 4 PM  
 - 🏆 **Prize Pool**: ₹3000  
 - 📍 **Venue**: Smart Block, NSUT
-
