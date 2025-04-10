@@ -212,7 +212,7 @@ const Header = ({ mode, setMode }) => {
             <div className="relative w-10 h-10 rounded-full overflow-hidden transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
               <div className={`w-full h-full bg-gradient-to-br ${themeColors.gradientFrom} to-purple-500 flex items-center justify-center`}>
                 <img 
-                  src="public/Tatsam_Logo.jpg" 
+                  src="Tatsam_Logo.jpg" 
                   alt="Tatsam Logo" 
                   className="w-3/4 h-3/4 object-cover rounded-full opacity-90 transition-transform duration-700 transform group-hover:scale-110 group-hover:rotate-12"
                 />
