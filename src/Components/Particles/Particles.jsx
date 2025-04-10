@@ -1,7 +1,18 @@
 import { useEffect, useRef } from "react";
 import { Renderer, Camera, Geometry, Program, Mesh } from "ogl";
 
-const defaultColors = ["#ffffff", "#ffffff", "#ffffff"];
+const themeConfigs = {
+  light: {
+  defaultColors: ["#FFFFFF", "#FFFFFF", "#FFFFFF"], // white colors
+  backgroundColor: [0, 0, 0, 1], // solid black background
+  brightness: 0.8, // dimmer particles for light theme
+},
+  dark: {
+    defaultColors: ["#000000", "#000000", "#000000"],
+    backgroundColor: [0, 0, 0, 0], // black transparent
+    brightness: 1.0, // brighter particles for dark theme
+  }
+};
 
 const hexToRgb = (hex) => {
   hex = hex.replace(/^#/, "");
@@ -55,6 +66,7 @@ const fragment = /* glsl */ `
   
   uniform float uTime;
   uniform float uAlphaParticles;
+  uniform float uBrightness;
   varying vec4 vRandom;
   varying vec3 vColor;
   
@@ -66,10 +78,10 @@ const fragment = /* glsl */ `
       if(d > 0.5) {
         discard;
       }
-      gl_FragColor = vec4(vColor + 0.2 * sin(uv.yxx + uTime + vRandom.y * 6.28), 1.0);
+      gl_FragColor = vec4(vColor * uBrightness + 0.2 * sin(uv.yxx + uTime + vRandom.y * 6.28), 1.0);
     } else {
       float circle = smoothstep(0.5, 0.4, d) * 0.8;
-      gl_FragColor = vec4(vColor + 0.2 * sin(uv.yxx + uTime + vRandom.y * 6.28), circle);
+      gl_FragColor = vec4(vColor * uBrightness + 0.2 * sin(uv.yxx + uTime + vRandom.y * 6.28), circle);
     }
   }
 `;
@@ -86,10 +98,14 @@ const Particles = ({
   sizeRandomness = 1,
   cameraDistance = 20,
   disableRotation = false,
+  mode = "dark", // New prop: 'light' or 'dark'
   className,
 }) => {
   const containerRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
+  
+  // Use the theme configuration based on mode
+  const themeConfig = themeConfigs[mode] || themeConfigs.dark;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -98,7 +114,10 @@ const Particles = ({
     const renderer = new Renderer({ depth: false, alpha: true });
     const gl = renderer.gl;
     container.appendChild(gl.canvas);
-    gl.clearColor(0, 0, 0, 0);
+    
+    // Set background color based on theme
+    const bgColor = themeConfig.backgroundColor;
+    gl.clearColor(bgColor[0], bgColor[1], bgColor[2], bgColor[3]);
 
     const camera = new Camera(gl, { fov: 15 });
     camera.position.set(0, 0, cameraDistance);
@@ -127,7 +146,11 @@ const Particles = ({
     const positions = new Float32Array(count * 3);
     const randoms = new Float32Array(count * 4);
     const colors = new Float32Array(count * 3);
-    const palette = particleColors && particleColors.length > 0 ? particleColors : defaultColors;
+    
+    // Use theme-specific colors if no custom colors provided
+    const palette = particleColors && particleColors.length > 0 
+      ? particleColors 
+      : themeConfig.defaultColors;
 
     for (let i = 0; i < count; i++) {
       let x, y, z, len;
@@ -159,6 +182,7 @@ const Particles = ({
         uBaseSize: { value: particleBaseSize },
         uSizeRandomness: { value: sizeRandomness },
         uAlphaParticles: { value: alphaParticles ? 1 : 0 },
+        uBrightness: { value: themeConfig.brightness }, // Add brightness uniform
       },
       transparent: true,
       depthTest: false,
@@ -219,6 +243,7 @@ const Particles = ({
     sizeRandomness,
     cameraDistance,
     disableRotation,
+    mode, // Add mode to dependency array
   ]);
 
   return (

@@ -13,15 +13,17 @@ import { LanguageProvider } from './LanguageContext'; // Adjust the path as need
 import Philosophy from './Components/Philosophy';
 
 const App = () => {
+  const [mode,setMode] = React.useState("dark");
+  
   return (
     <LanguageProvider>
       <Router>
         <div className="flex flex-col min-h-screen">
-          <Header />
+          <Header mode={mode} setMode={setMode}/>
 
           <main className="flex-grow">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home mode={mode} setMode={setMode}/>} />
               <Route path="/about-us" element={<About />} />
               <Route path="/events" element={<Events />} />
               <Route path="/members-corner" element={<MembersCorner />} />
@@ -32,8 +34,6 @@ const App = () => {
           </main>
 
           <div className="mt-auto">
-            <Newsletter />
-            <Footer />
           </div>
         </div>
       </Router>
