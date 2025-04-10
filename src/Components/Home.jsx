@@ -16,6 +16,7 @@ import {
   MessageSquare, 
   Heart
 } from 'lucide-react';
+
 import Footer from './Footer';
 
 // Lazy-loaded animated components for better performance
@@ -39,20 +40,22 @@ const Home = ({ mode, setMode }) => {
 
   // Featured events data
   const featuredEvents = [
-    {
-      title: language === 'en' ? 'Annual Hindi Diwas' : 'वार्षिक हिंदी दिवस',
-      description: language === 'en' 
-        ? 'Join us for our grand celebration of Hindi language and literature' 
-        : 'हिंदी भाषा और साहित्य के हमारे भव्य उत्सव में शामिल हों',
-      date: '14 Sep 2025'
-    },
+
     {
       title: language === 'en' ? 'Poetry Competition' : 'काव्य प्रतियोगिता',
       description: language === 'en' 
         ? 'Express your creativity with Hindi poetry and win exciting prizes' 
         : 'हिंदी कविता के साथ अपनी रचनात्मकता व्यक्त करें और आकर्षक पुरस्कार जीतें',
-      date: '25 Apr 2025'
+      date: 'Apr 2025'
+    },
+    {
+      title: language === 'en' ? 'Annual Hindi Diwas' : 'वार्षिक हिंदी दिवस',
+      description: language === 'en' 
+        ? 'Join us for our grand celebration of Hindi language and literature' 
+        : 'हिंदी भाषा और साहित्य के हमारे भव्य उत्सव में शामिल हों',
+      date: ' May 2025'
     }
+    
   ];
 
   // Featured blog posts
@@ -74,7 +77,7 @@ const Home = ({ mode, setMode }) => {
   return (
     <div className={`min-h-screen w-full transition-colors duration-300 ${mode === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
       {/* Three.js Background */}
-      <div ref={mountRef} className="fixed inset-0 z-0" >
+      <div ref={mountRef} className="fixed inset-0 z-0 pointer-events-none" >
       
       </div>
       
@@ -93,9 +96,9 @@ const Home = ({ mode, setMode }) => {
           mode
         />
       </div>
-        <div className="text-center max-w-4xl mx-auto">
+      <div className="text-center max-w-4xl mx-auto">
           {/* Logo/Symbol */}
-          <div className="mb-6 transform hover:scale-110 transition-transform duration-300">
+          {/* <div className="mb-6 transform hover:scale-110 transition-transform duration-300">
             <svg width="120" height="120" viewBox="0 0 100 100" className="mx-auto">
               <circle cx="50" cy="50" r="45" fill="none" stroke={mode === 'dark' ? '#FFD700' : '#c2410c'} strokeWidth="2" />
                 <img 
@@ -103,9 +106,8 @@ const Home = ({ mode, setMode }) => {
                   alt="Tatsam Logo" 
                   className="w-3/4 h-3/4 object-cover rounded-full opacity-90 transition-transform duration-700 transform group-hover:scale-110 group-hover:rotate-12"
                 />
-              {/* </text> */}
             </svg>
-          </div>
+          </div> */}
           
           {/* Animated Welcome */}
           <Suspense fallback={<div className="h-16"></div>}>
@@ -337,41 +339,66 @@ const Home = ({ mode, setMode }) => {
       
       {/* Gallery Preview */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            {language === 'en' ? 'Gallery Highlights' : 'गैलरी हाइलाइट्स'}
-          </h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
-            {[1, 2, 3, 4].map((item) => (
-              <div 
-                key={item}
-                className="aspect-square overflow-hidden rounded-lg transition-all hover:transform hover:scale-105"
-              >
-                <img 
-                  src={`/api/placeholder/400/400`} 
-                  alt="Gallery item" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Link 
-              to="/gallery" 
-              className={`inline-flex items-center px-6 py-3 rounded-lg ${
-                mode === 'dark'
-                  ? 'bg-gray-800 text-white hover:bg-gray-700'
-                  : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-              }`}
-            >
-              <Image className="mr-2" size={18} />
-              {language === 'en' ? 'View Full Gallery' : 'पूरी गैलरी देखें'}
-            </Link>
-          </div>
-        </div>
-      </section>
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-bold text-center mb-12">
+      {language === 'en' ? 'Gallery Highlights' : 'गैलरी हाइलाइट्स'}
+    </h2>
+
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
+      {/* Image 1 */}
+      <div className="aspect-square overflow-hidden rounded-lg transition-all hover:transform hover:scale-105">
+        <img
+          src="Hindi Diwas.webp"
+          alt="Gallery item 1"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Image 2 */}
+      <div className="aspect-square overflow-hidden rounded-lg transition-all hover:transform hover:scale-105">
+        <img
+          src="Nukkad Natak.jpg"
+          alt="Gallery item 2"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Image 3 */}
+      <div className="aspect-square overflow-hidden rounded-lg transition-all hover:transform hover:scale-105">
+        <img
+          src="Kavi Sammelan.jpg"
+          alt="Gallery item 3"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Image 4 - Fixed with object-contain */}
+<div className="aspect-square overflow-hidden rounded-lg transition-all hover:transform hover:scale-105">
+  <img
+    src="Debate Competition.jpg"
+    alt="Gallery item 4"
+    className="w-full h-full object-contain bg-white"
+  />
+</div>
+
+    </div>
+
+    <div className="text-center mt-12">
+      <Link
+        to="/gallery"
+        className={`inline-flex items-center px-6 py-3 rounded-lg ${
+          mode === 'dark'
+            ? 'bg-gray-800 text-white hover:bg-gray-700'
+            : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+        }`}
+      >
+        <Image className="mr-2" size={18} />
+        {language === 'en' ? 'View Full Gallery' : 'पूरी गैलरी देखें'}
+      </Link>
+    </div>
+  </div>
+</section>
+
 
       <Footer mode={mode}/>
 </div>

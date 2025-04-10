@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { FaInstagram, FaFacebookF, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { MdEmail, MdLocationOn, MdPhone } from 'react-icons/md';
 import { LanguageContext } from '../LanguageContext'; // Adjust the path as needed
+import { Link } from 'react-router-dom';
 
 const Footer = ({mode}) => {
   const { language } = useContext(LanguageContext);  
@@ -24,9 +25,8 @@ const Footer = ({mode}) => {
   const quickLinks = [
     { text: language === 'en' ? 'Events' : 'कार्यक्रम', url: '/events' },
     { text: language === 'en' ? 'Gallery' : 'गैलरी', url: '/gallery' },
-    { text: language === 'en' ? 'About Us' : 'हमारे बारे में', url: '/about' },
-    { text: language === 'en' ? 'Join Us' : 'हमसे जुड़ें', url: '/join' },
-    { text: language === 'en' ? 'Contact' : 'संपर्क', url: '/contact' },
+    { text: language === 'en' ? 'About Us' : 'हमारे बारे में', url: '/about-us' },
+    
   ];
 
   return (
@@ -43,48 +43,50 @@ const Footer = ({mode}) => {
               : 'NSUT की हिंदी सोसाइटी — हिंदी साहित्य, कविता और संस्कृति की सुंदरता का उत्सव। हमारी अभिव्यक्ति, कला और पहचान की यात्रा का हिस्सा बनें।'}
           </p>
           <div className="flex space-x-4 mt-3">
-            <a href="https://www.instagram.com/tatsam.nsut?igsh=MTV2NHk3ZDcxbWZ3dA==" 
-               className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors duration-300`} 
-               aria-label="Instagram">
-              <FaInstagram size={20} />
-            </a>
-            <a href="https://www.facebook.com/share/1KW4Rpz8Cy/" 
-               className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors duration-300`} 
-               aria-label="Facebook">
-              <FaFacebookF size={20} />
-            </a>
-            <a href="#" 
-               className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors duration-300`} 
-               aria-label="Twitter">
-              <FaTwitter size={20} />
-            </a>
-            <a href="#" 
-               className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors duration-300`} 
-               aria-label="YouTube">
-              <FaYoutube size={20} />
-            </a>
+          <a
+  href="https://www.instagram.com/tatsam.nsut/"
+  target="_blank"
+  rel="noreferrer"
+  className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors duration-300`}
+  aria-label="Instagram"
+>
+  <FaInstagram size={20} />
+</a>
+
+<a
+  href="https://www.facebook.com/tatsam.nsut"
+  target="_blank"
+  rel="noreferrer"
+  className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors duration-300`}
+  aria-label="Facebook"
+>
+  <FaFacebookF size={20} />
+</a>
+
+          
           </div>
         </div>
 
-        {/* Quick Links */}
-        <div className="col-span-1">
-          <h3 className={`text-xl font-semibold mb-4 ${isDark ? 'text-white' : 'text-gray-800'}`}>
-            {language === 'en' ? 'Quick Links' : 'त्वरित लिंक'}
-          </h3>
-          <ul className="space-y-2">
-            {quickLinks.map((link, index) => (
-              <li key={index}>
-                <a 
-                  href={link.url} 
-                  className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors duration-300 flex items-center`}
-                >
-                  <span className="mr-2">›</span>
-                  {link.text}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+    {/* Quick Links */}
+<div className="col-span-1">
+  <h3 className={`text-xl font-semibold mb-4 ${isDark ? 'text-white' : 'text-gray-800'}`}>
+    {language === 'en' ? 'Quick Links' : 'त्वरित लिंक'}
+  </h3>
+  <ul className="space-y-2">
+    {quickLinks.map((link, index) => (
+      <li key={index}>
+        <Link 
+          to={link.url} 
+          className={`${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors duration-300 flex items-center`}
+        >
+          <span className="mr-2">›</span>
+          {link.text}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
+
 
         {/* Contact Info */}
         <div className="col-span-1">

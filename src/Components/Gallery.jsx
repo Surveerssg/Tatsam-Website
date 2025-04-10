@@ -5,12 +5,14 @@ const imagesData = {
   en: [
     { src: 'Kavi Sammelan.jpg', alt: 'Kavita Sammelan 2024' },
     { src: 'Nukkad Natak.jpg', alt: 'Nukkad Natak Performance' },
-    { src: 'Tatsam Logo.jpg', alt: 'Debate Competition' },
+    { src: 'Debate Competition.jpg', alt: 'Debate Competition' },
+    { src: 'Hindi Diwas.webp', alt: 'Hindi Diwas' },
   ],
   hi: [
     { src: 'Kavi Sammelan.jpg', alt: 'कविता सम्मेलन 2024' },
     { src: 'Nukkad Natak.jpg', alt: 'नुक्कड़ नाटक प्रदर्शन' },
-    { src: 'Tatsam Logo.jpg', alt: 'बहस प्रतियोगिता' },
+    { src: 'Debate Competition.jpg', alt: 'बहस प्रतियोगिता' },
+    { src: 'Hindi Diwas.webp', alt: 'हिंदी दिवस' },
   ],
 };
 
@@ -25,7 +27,7 @@ const Gallery = () => {
       </h2>
       <div style={galleryContainerStyle}>
         {images.map((img, index) => (
-          <div key={index} style={imageWrapperStyle}>
+          <div key={index} className="image-card" style={imageWrapperStyle}>
             <img src={img.src} alt={img.alt} style={imageStyle} />
           </div>
         ))}
@@ -50,11 +52,11 @@ const galleryContainerStyle = {
 const imageWrapperStyle = {
   width: '100%',
   position: 'relative',
-  paddingTop: '75%', // 4:3 aspect ratio
+  paddingTop: '75%',
   overflow: 'hidden',
   borderRadius: '12px',
-  boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-  backgroundColor: '#000', // Optional: add a background to highlight images that don't fill the container completely
+  backgroundColor: '#000',
+  transition: 'transform 0.3s ease-in-out, border 0.3s ease-in-out',
 };
 
 const imageStyle = {
@@ -63,8 +65,18 @@ const imageStyle = {
   left: 0,
   width: '100%',
   height: '100%',
-  objectFit: 'contain', // Use contain to ensure the whole image is visible
+  objectFit: 'contain',
   display: 'block',
 };
+
+// 👇 Add hover effect via CSS-in-JS
+const styleTag = document.createElement('style');
+styleTag.innerHTML = `
+  .image-card:hover {
+    border: 2px solid #28a745;
+    transform: scale(1.05);
+  }
+`;
+document.head.appendChild(styleTag);
 
 export default Gallery;

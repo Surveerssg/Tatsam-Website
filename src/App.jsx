@@ -33,8 +33,7 @@ const App = () => {
             </Routes>
           </main>
 
-          <div className="mt-auto">
-          </div>
+
         </div>
       </Router>
     </LanguageProvider>
