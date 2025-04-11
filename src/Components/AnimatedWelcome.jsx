@@ -33,7 +33,7 @@ const AnimatedWelcome = ({mode}) => {
       }}
     >
       <div style={{ opacity: opacity, transition: 'opacity 1s' }}>
-        <h1 className={mode === 'light' ? "text-black" : "text-white"} style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#fff', textAlign: 'center' }}>
+        <h1 className={mode === 'light' ? "text-yellow" : "text-white"} style={{ fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center' }}>
           {messages[index].text}
         </h1>
       </div>
