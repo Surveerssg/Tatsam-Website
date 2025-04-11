@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const AnimatedWelcome = () => {
+const AnimatedWelcome = ({mode}) => {
   const messages = [
     { lang: 'en', text: 'Welcome to Tatsam Society' },
     { lang: 'hi', text: 'तत्सम में आपका स्वागत है' },
@@ -33,7 +33,7 @@ const AnimatedWelcome = () => {
       }}
     >
       <div style={{ opacity: opacity, transition: 'opacity 1s' }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#fff', textAlign: 'center' }}>
+        <h1 className={mode === 'light' ? "text-black" : "text-white"} style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#fff', textAlign: 'center' }}>
           {messages[index].text}
         </h1>
       </div>

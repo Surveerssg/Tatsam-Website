@@ -119,7 +119,7 @@ const Home = ({ mode, setMode }) => {
 
           {/* Animated Welcome */}
           <Suspense fallback={<div className="h-16"></div>}>
-            <AnimatedWelcome />
+            <AnimatedWelcome mode={mode}/>
           </Suspense>
 
           <h2 className="mt-6 text-2xl md:text-3xl font-light">
